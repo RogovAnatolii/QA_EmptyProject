@@ -10,21 +10,23 @@ public class TestConfiguration {
     private String URL;
 
     public TestConfiguration() {
-        if(System.getProperty("env.Hub_URL") == null){
-            HUB_URL = "http://";
+        if(System.getProperty("env.Hub_URL") == null) {
+            HUB_URL = "http://192.168.0.21:5513/wd/hub";
         } else {
             HUB_URL = System.getProperty("env.Hub_URL");
         }
 
-        if(System.getProperty("env.Browser") == null){
+        if(System.getProperty("env.Browser") == null) {
             BROWSER = "chrome";
+        } else {
+            BROWSER = System.getProperty("env.Browser");
         }
-        BROWSER = System.getProperty("env.Browser");
 
-        if(System.getProperty("env.Url") == null){
-            URL = "http://";
+        if(System.getProperty("env.Url") == null) {
+            URL = "http://open.ru";
+        }else {
+            URL = System.getProperty("env.Url");
         }
-        URL = System.getProperty("env.Url");
     }
 
     public String getHUB_URL() {
