@@ -5,6 +5,7 @@ package testNames;
  */
 public enum  CaseNames {
     CN_000("Название кейса"),
+    CN_001("Название кейса2")
     ;
 
     final private String name;

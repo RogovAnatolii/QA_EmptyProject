@@ -1,10 +1,13 @@
 package base;
 
+import apiStepClasses.demoTestSteps.DemoTestSteps;
 import com.codeborne.selenide.Configuration;
 import listeners.TestListeners;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Listeners;
+import pages.afterSearch.AfterSearchTestSteps;
+import pages.home.HomePageTestSteps;
 import testConfiguration.TestConfiguration;
 
 /**
@@ -14,6 +17,11 @@ import testConfiguration.TestConfiguration;
 public class Base {
 
     public String URL;
+    public String URL_API_TEST;
+
+    protected final HomePageTestSteps TEST_STEPS_HOME_PAGE = new HomePageTestSteps();
+    protected final AfterSearchTestSteps TEST_STEPS_AFTER_SEARCH = new AfterSearchTestSteps();
+    protected final DemoTestSteps TEST_STEPS_DEMO_API = new DemoTestSteps();
 
 
     @BeforeMethod(alwaysRun = true)
@@ -22,6 +30,7 @@ public class Base {
         Configuration.remote = testConfiguration.getHUB_URL();
         Configuration.browser = testConfiguration.getBROWSER();
         this.URL = testConfiguration.getURL();
+        this.URL_API_TEST = testConfiguration.getURL_API_TEST();
     }
 
     @BeforeSuite

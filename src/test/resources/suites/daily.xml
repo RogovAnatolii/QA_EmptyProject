@@ -4,5 +4,6 @@
 <suite name="daily">
     <suite-files>
         <suite-file path="testClassName/demo.xml"/>
+        <suite-file path="testClassName/demoApi.xml"/>
     </suite-files>
 </suite>
