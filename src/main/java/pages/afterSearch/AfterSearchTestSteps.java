@@ -27,7 +27,9 @@ public class AfterSearchTestSteps extends AfterSearchPage {
     @Step("Опуститься вниз страницы и взять номер телефона")
     public void goDownPage() {
         try {
+            Thread.sleep(3000);
             SelenideElement webElement = scrollToElement(downPartPage());
+            Thread.sleep(3000);
             String mobileNumber = webElement.find(By.xpath("//div[@id='footer_federal_number']")).getText();
             Assert.assertNotNull(mobileNumber);
             System.out.println(mobileNumber);

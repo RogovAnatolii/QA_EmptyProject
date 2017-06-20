@@ -12,7 +12,7 @@ public class TestConfiguration {
 
     public TestConfiguration() {
         if(System.getProperty("env.Hub_URL") == null) {
-            HUB_URL = "http://192.168.0.21:5513/wd/hub";
+            HUB_URL = "http://*.*.*.*:5513/wd/hub";
         } else {
             HUB_URL = System.getProperty("env.Hub_URL");
         }

@@ -37,7 +37,7 @@
                         <suiteXmlFile>${project.basedir}\src\test\resources\suites\daily.xml</suiteXmlFile>
                     </suiteXmlFiles>
                     <argLine>
-                         -Xmx1024m
+                         -Xmx2048m
                          -javaagent:${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar
                          -Dfile.encoding=UTF-8
                     </argLine>
@@ -72,24 +72,15 @@
         </dependency>
 
         <dependency>
-            <groupId>io.rest-assured</groupId>
-            <artifactId>json-schema-validator</artifactId>
-            <version>3.0.3</version>
-            <scope>test</scope>
-        </dependency>
-
-        <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
             <version>6.11</version>
-            <scope>test</scope>
         </dependency>
 
         <dependency>
             <groupId>com.codeborne</groupId>
             <artifactId>selenide</artifactId>
             <version>4.4.3</version>
-            <scope>test</scope>
         </dependency>
 
         <dependency>
@@ -133,16 +124,6 @@
             <artifactId>slf4j-api</artifactId>
             <version>1.7.10</version>
         </dependency>
-        <dependency>
-            <groupId>org.testng</groupId>
-            <artifactId>testng</artifactId>
-            <version>6.11</version>
-        </dependency>
-        <dependency>
-            <groupId>com.codeborne</groupId>
-            <artifactId>selenide</artifactId>
-            <version>4.4.3</version>
-        </dependency>
 
     </dependencies>
 
@@ -153,7 +134,7 @@
                 <groupId>ru.yandex.qatools.allure</groupId>
                 <artifactId>allure-maven-plugin</artifactId>
                 <configuration>
-                    <reportDirectory>/Users/AnatolyRogov/Desktop/QA_EmptyProject/target/allure-results</reportDirectory>
+                    <reportDirectory>${project.basedir}/target/allure-results</reportDirectory>
                 </configuration>
             </plugin>
         </plugins>

@@ -2,13 +2,21 @@ package base;
 
 import apiStepClasses.demoTestSteps.DemoTestSteps;
 import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.Selenide;
+import com.codeborne.selenide.WebDriverRunner;
 import listeners.TestListeners;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Listeners;
 import pages.afterSearch.AfterSearchTestSteps;
 import pages.home.HomePageTestSteps;
 import testConfiguration.TestConfiguration;
+
+import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 
 /**
  * Created by AnatolyRogov on 16.06.17.
