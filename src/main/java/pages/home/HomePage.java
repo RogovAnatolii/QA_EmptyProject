@@ -10,17 +10,9 @@ import static com.codeborne.selenide.Selenide.$;
  */
 public class HomePage {
 
-    public SelenideElement hrefToSmartCard() {
-        return $(By.xpath("//div[@id='nav']//a[contains(text(),'Смарт Карта')]"));
-    }
+    public SelenideElement userName() { return $(By.xpath("//div[@class='top_profile_name']")); }
 
-    public SelenideElement btnSearch() {
-        return $(By.xpath("//div[@class='header active']//a[@class='b_search']"));
-    }
 
-    public SelenideElement inputSearchForm() {
-        return $(By.xpath("//div[@class='header active']//form[@id='main_search_form']//input[@class='input']"));
-    }
 
 
 }

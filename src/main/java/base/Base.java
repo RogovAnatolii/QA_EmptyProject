@@ -1,6 +1,5 @@
 package base;
 
-import apiStepClasses.demoTestSteps.DemoTestSteps;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.WebDriverRunner;
@@ -12,8 +11,12 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.Listeners;
-import pages.afterSearch.AfterSearchTestSteps;
+import pages.home.HomePage;
 import pages.home.HomePageTestSteps;
+import pages.menu.MenuTestSteps;
+import pages.message.MessageTestSteps;
+import pages.preLogin.PreLoginPage;
+import pages.preLogin.PreLoginTestSteps;
 import testConfiguration.TestConfiguration;
 
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
@@ -25,11 +28,11 @@ import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 public class Base {
 
     public String URL;
-    public String URL_API_TEST;
 
-    protected final HomePageTestSteps TEST_STEPS_HOME_PAGE = new HomePageTestSteps();
-    protected final AfterSearchTestSteps TEST_STEPS_AFTER_SEARCH = new AfterSearchTestSteps();
-    protected final DemoTestSteps TEST_STEPS_DEMO_API = new DemoTestSteps();
+    public PreLoginTestSteps PRE_LOGIN_TEST_STEPS = new PreLoginTestSteps();
+    public HomePageTestSteps HOME_TEST_STEPS = new HomePageTestSteps();
+    public MenuTestSteps MENU_TEST_STEPS = new MenuTestSteps();
+    public MessageTestSteps MESSAGE_TEST_STEPS = new MessageTestSteps();
 
 
     @BeforeMethod(alwaysRun = true)
@@ -38,7 +41,6 @@ public class Base {
         Configuration.remote = testConfiguration.getHUB_URL();
         Configuration.browser = testConfiguration.getBROWSER();
         this.URL = testConfiguration.getURL();
-        this.URL_API_TEST = testConfiguration.getURL_API_TEST();
     }
 
     @BeforeSuite
@@ -47,7 +49,7 @@ public class Base {
         Configuration.collectionsTimeout = 67000;
         Configuration.screenshots = false;
         Configuration.startMaximized = true;
-        Configuration.holdBrowserOpen = true;
+        Configuration.holdBrowserOpen = false;
     }
 
 

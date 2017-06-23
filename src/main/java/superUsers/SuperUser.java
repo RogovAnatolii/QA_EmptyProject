@@ -13,6 +13,7 @@ import java.util.Random;
 public class SuperUser {
     public String login;
     public String password;
+    public String name;
 
     public SuperUser(String role) throws FileNotFoundException {
         ReadFileSuperUsers(role);
@@ -24,15 +25,17 @@ public class SuperUser {
         String[] sSpl;
         ArrayList<String> loginArray = new ArrayList<String>();
         ArrayList<String> passwordArray = new ArrayList<String>();
+        ArrayList<String> nameArray = new ArrayList<String>();
         try {
             String curDir = new File("").getAbsolutePath();
-            BufferedReader br = new BufferedReader(new FileReader(curDir + "\\src\\main\\java\\SuperUsers\\SuperUsers.csv"));
+            BufferedReader br = new BufferedReader(new FileReader(curDir + "/src/main/java/superUsers/SuperUsers.csv"));
             try {
                 while ((line = br.readLine()) != null) {
                     if (line.contains(role)) {
                         sSpl = line.split(";");
                         loginArray.add(sSpl[2]);
                         passwordArray.add(sSpl[3]);
+                        nameArray.add(sSpl[4]);
                     }
                 }
             } finally {
@@ -47,6 +50,7 @@ public class SuperUser {
             int rand = rnd.nextInt(loginArray.size());
             this.login = loginArray.get(rand);
             this.password = passwordArray.get(rand);
+            this.name = nameArray.get(rand);
         } catch (Throwable e) {
             throw new IllegalStateException("Пользователь с необходимой ролью не найден" + e);
         }

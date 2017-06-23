@@ -8,7 +8,6 @@ public class TestConfiguration {
     private String HUB_URL;
     private String BROWSER;
     private String URL;
-    private String URL_API_TEST;
 
     public TestConfiguration() {
         if(System.getProperty("env.Hub_URL") == null) {
@@ -18,20 +17,15 @@ public class TestConfiguration {
         }
 
         if(System.getProperty("env.Browser") == null) {
-            BROWSER = "chrome";
+            BROWSER = "firefox";
         } else {
             BROWSER = System.getProperty("env.Browser");
         }
 
         if(System.getProperty("env.Url") == null) {
-            URL = "http://open.ru";
+            URL = "https://vk.com";
         }else {
             URL = System.getProperty("env.Url");
-        }
-        if(System.getProperty("env.Url_Api_Test") == null) {
-            URL_API_TEST = "http://kn-ktapp.herokuapp.com";
-        }else {
-            URL_API_TEST = System.getProperty("env.Url_Api_Test");
         }
     }
 
@@ -47,7 +41,4 @@ public class TestConfiguration {
         return URL;
     }
 
-    public String getURL_API_TEST() {
-        return URL_API_TEST;
-    }
 }

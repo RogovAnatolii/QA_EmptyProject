@@ -3,7 +3,7 @@
 
 <suite name="daily">
     <suite-files>
-        <suite-file path="testClassName/demo.xml"/>
-        <suite-file path="testClassName/demoApi.xml"/>
+        <suite-file path="testClassName/login.xml"/>
+        <suite-file path="testClassName/message.xml"/>
     </suite-files>
 </suite>

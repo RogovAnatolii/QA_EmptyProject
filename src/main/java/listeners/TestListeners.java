@@ -1,14 +1,17 @@
 package listeners;
 
+import org.openqa.selenium.By;
 import org.testng.*;
 import ru.yandex.qatools.allure.Allure;
 import ru.yandex.qatools.allure.events.TestCaseEvent;
 import ru.yandex.qatools.allure.model.TestCaseResult;
 import testNames.TestNames;
 
+import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 import static com.codeborne.selenide.WebDriverRunner.hasWebDriverStarted;
 import static utils.Screenshot.takeScreenshotFullPage;
+import static utils.Screenshot.takeScreenshotWebElement;
 
 /**
  * Created by AnatolyRogov on 17.06.17.
@@ -28,8 +31,7 @@ public class TestListeners implements ITestListener, IInvokedMethodListener {
                     takeScreenshotFullPage("Last step screenshot");
             } finally {
                 if(hasWebDriverStarted()) {
-                    getWebDriver().close();
-                    getWebDriver().quit();
+
                 }
             }
         }
@@ -85,6 +87,10 @@ public class TestListeners implements ITestListener, IInvokedMethodListener {
                         testCaseResult.setTitle(names.value().toString());
                     }
                 });
+            }
+            if(hasWebDriverStarted()) {
+                getWebDriver().close();
+                getWebDriver().quit();
             }
         }
     }
